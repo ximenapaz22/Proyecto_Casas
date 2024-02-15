@@ -1,0 +1,16 @@
+LICENSE
+README.md
+arbol_estructura_repositorio.txt
+data
+inference.py
+notebooks
+prep.py
+train.py
+
+/Users/ximenapaz/github/iTAM/Proyecto_Casas/data:
+sample_submission.csv
+test.csv
+train.csv
+
+/Users/ximenapaz/github/iTAM/Proyecto_Casas/notebooks:
+Predicción_precioscasas-3.ipynb

@@ -1,3 +1,11 @@
+from prep import train
+from prep import train_test_split
+from prep import XGBRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_absolute_error
+import pickle
+
 #Asignamos las variables para nuestro modelo
 X = train.drop(['Id', 'SalePrice'], axis=1).select_dtypes(exclude=['object'])
 y = train['SalePrice']

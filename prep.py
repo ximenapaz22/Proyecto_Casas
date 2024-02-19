@@ -11,13 +11,13 @@ from sklearn.metrics import mean_absolute_error
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-train = pd.read_csv('data/train.csv')
+train = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv')
 train.head()
 
-test = pd.read_csv('data/test.csv')
+test = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/test.csv')
 test.head()
 
-sample = pd.read_csv('data/sample_submission.csv')
+sample = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/sample_submission.csv')
 sample.head()
 
 train.describe()
@@ -38,7 +38,12 @@ train.dropna(axis=0, subset=['SalePrice'], inplace=True)
 
 #Se calcula la correlación
 
-correlation_matrix = train.corr()
+columnas_object = train.select_dtypes(include=['object']).columns
+train_sin_object = train.drop(columns=columnas_object)
+print(train_sin_object.head())
+
+
+correlation_matrix = train_sin_object.corr()
 
 # Selecciona las columnas con alta correlación con 'SalePrice'
 high_corr_columns = correlation_matrix['SalePrice'][abs(correlation_matrix['SalePrice']) > 0.5].index
@@ -60,4 +65,8 @@ plt.show()
 train[high_corr_columns].hist(figsize=(16, 20), bins=50, xlabelsize=8, ylabelsize=8)
 # Display the histograms
 plt.show()
+
+
+
+
 

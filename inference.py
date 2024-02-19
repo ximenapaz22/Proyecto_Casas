@@ -1,6 +1,13 @@
+import pickle
+from train import filename
+from train import X_test
+from train import y_test
+from prep import test
+import pandas as pd
+
 # Cargar modelo
 loaded_model = pickle.load(open(filename, 'rb'))
-result = loaded_model.score(X_test, Y_test)
+result = loaded_model.score(X_test, y_test)
 print(result)
 
 #Predicciones

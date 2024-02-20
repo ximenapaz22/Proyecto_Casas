@@ -11,6 +11,8 @@ from sklearn.metrics import mean_absolute_error
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
+
+#Funcion para importar 
 train = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv')
 train.head()
 

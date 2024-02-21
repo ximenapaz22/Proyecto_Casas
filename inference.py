@@ -1,9 +1,4 @@
-import pickle
-from train import filename
-from train import X_test
-from train import y_test
-from prep import test
-import pandas as pd
+from src.utils import *
 
 # Cargar modelo
 loaded_model = pickle.load(open(filename, 'rb'))

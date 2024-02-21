@@ -1,21 +1,13 @@
-from prep import train
-from prep import train_test_split
-from prep import XGBRegressor
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import r2_score
-from sklearn.metrics import mean_absolute_error
-import pickle
+from src.utils import *
 
 #Asignamos las variables para nuestro modelo
-X = train.drop(['Id', 'SalePrice'], axis=1).select_dtypes(exclude=['object'])
-y = train['SalePrice']
+X, y = asignar_variables(train)
 
 #Utilizamos el 20% como test y el 80% como training
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+X_train, X_test, y_train, y_test = split(X, y, test_size=0.2, random_state=123)
 
 #Se utiliza el modelo descenso de gradiente con los datos de entrenamiento
-modelo = XGBRegressor()
-modelo.fit(X_train, y_train, )
+modelo = entrenar_modelo(X_train, y_train)
 
 #Se calcula MSE, aunque este valor puede depender de la escala de nuestros datos
 p = modelo.predict(X_test)

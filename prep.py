@@ -1,32 +1,23 @@
-import pickle
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from xgboost import XGBRegressor
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import r2_score
-from sklearn.metrics import mean_absolute_error
-import warnings
-warnings.filterwarnings("ignore", category=FutureWarning)
+from src.utils import *
 
-
-#Funcion para importar 
-train = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv')
+#Funcion para importar
+ruta_archivo_train = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv'
+train = cargar_datos(ruta_archivo_train)
 train.head()
 
-test = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/test.csv')
+ruta_archivo_test = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/test.csv'
+test = cargar_datos(ruta_archivo_test)
 test.head()
 
-sample = pd.read_csv('/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/sample_submission.csv')
+ruta_archivo_sample = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/sample_submission.csv'
+sample = cargar_datos(ruta_archivo_sample)
 sample.head()
 
 train.describe()
 
 #Se buscarán los missing values en nuestra train data
-missing_value = train.isnull().sum()
-number_of_cols = missing_value[missing_value>1]
+umbral = 1
+number_of_cols = encontrar_valores_faltantes(train, umbral)
 print(number_of_cols)
 
 #Grafica de análisis

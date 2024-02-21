@@ -1,3 +1,4 @@
 data/
 .DS_store
 __pycache__/
+modelo_final.sav

@@ -1,23 +1,31 @@
+import argparse
 import sys
 sys.path.append('/Users/ximenapaz/github/ITAM/Proyecto_Casas/src')
 from src.utils import *
 
 
+parser = argparse.ArgumentParser(description='Script para cargar datos desde archivos CSV.')
 
-#Funcion para importar
-ruta_archivo_train = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv'
-train = cargar_datos(ruta_archivo_train)
-train.head()
+parser.add_argument('--ruta_train', type=str, default='/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv', help='Ruta al archivo CSV de entrenamiento.')
+parser.add_argument('--ruta_test', type=str, default='/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/test.csv', help='Ruta al archivo CSV de prueba.')
+parser.add_argument('--ruta_sample', type=str, default='/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/sample_submission.csv', help='Ruta al archivo CSV de muestra.')
 
-ruta_archivo_test = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/test.csv'
-test = cargar_datos(ruta_archivo_test)
-test.head()
+args = parser.parse_args()
 
-ruta_archivo_sample = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/sample_submission.csv'
-sample = cargar_datos(ruta_archivo_sample)
-sample.head()
+# Cargar los datos desde los archivos especificados por el usuario
+train = pd.read_csv(args.ruta_train)
+test = pd.read_csv(args.ruta_test)
+sample = pd.read_csv(args.ruta_sample)
 
-train.describe()
+# Mostrar los primeros registros de cada conjunto de datos
+print("Datos de entrenamiento:")
+print(train.head())
+print("\nDatos de prueba:")
+print(test.head())
+print("\nDatos de muestra:")
+print(sample.head())
+
+print(train.describe()) 
 
 #Se buscarán los missing values en nuestra train data
 umbral = 1

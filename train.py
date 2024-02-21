@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/Users/ximenapaz/github/ITAM/Proyecto_Casas/src')
 from src.utils import *
+
 from prep import train
 
 #Asignamos las variables para nuestro modelo
@@ -29,6 +30,11 @@ print(mae)
 r2 = r2_score(y_test, p)
 print(r2)
 
-# save the model to disk
-filename = 'modelo_final.sav'
+
+#Guardar modelo
+parser = argparse.ArgumentParser(description='Guardar un modelo entrenado.')
+parser.add_argument('--filename', type=str, default='modelo_final.sav', help='Nombre del archivo para guardar el modelo entrenado.')
+args = parser.parse_args()
+modelo = XGBRegressor()
+filename = args.filename
 pickle.dump(modelo, open(filename, 'wb'))

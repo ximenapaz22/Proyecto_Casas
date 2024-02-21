@@ -7,8 +7,14 @@ from train import y_test
 from prep import test
 
 # Cargar modelo
+parser = argparse.ArgumentParser(description='Cargar y evaluar un modelo guardado.')
+parser.add_argument('--filename', type=str, default='modelo_final.sav', help='Nombre del archivo que contiene el modelo entrenado.')
+args = parser.parse_args()
+filename = args.filename
 loaded_model = pickle.load(open(filename, 'rb'))
-result = loaded_model.score(X_test, y_test)
+
+# Calcular el resultado del modelo y mostrarlo
+result = loaded_model.score(X_test, y_test)  
 print(result)
 
 #Predicciones

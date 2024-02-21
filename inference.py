@@ -1,4 +1,10 @@
+import sys
+sys.path.append('/Users/ximenapaz/github/ITAM/Proyecto_Casas/src')
 from src.utils import *
+from train import filename
+from train import X_test
+from train import y_test   
+from prep import test
 
 # Cargar modelo
 loaded_model = pickle.load(open(filename, 'rb'))

@@ -1,4 +1,7 @@
+import sys
+sys.path.append('/Users/ximenapaz/github/ITAM/Proyecto_Casas/src')
 from src.utils import *
+from prep import train
 
 #Asignamos las variables para nuestro modelo
 X, y = asignar_variables(train)

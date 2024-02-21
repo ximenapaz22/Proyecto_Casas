@@ -1,4 +1,8 @@
+import sys
+sys.path.append('/Users/ximenapaz/github/ITAM/Proyecto_Casas/src')
 from src.utils import *
+
+
 
 #Funcion para importar
 ruta_archivo_train = '/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv'

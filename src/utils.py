@@ -10,12 +10,6 @@ from sklearn.metrics import r2_score
 from sklearn.metrics import mean_absolute_error
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
-from train import filename
-from train import X_test
-from train import y_test
-from prep import train
-from prep import test
-from prep import sample
 
 import pandas as pd
 

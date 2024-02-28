@@ -4,8 +4,7 @@ sys.path.append('/Users/ximenapaz/github/ITAM/Proyecto_Casas/src')
 from src.utils import *
 
 
-parser = argparse.ArgumentParser(description='Script para cargar datos desde archivos CSV.')
-
+parser = argparse.ArgumentParser(description='Carga de datos desde csv')
 parser.add_argument('--ruta_train', type=str, default='/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/train.csv', help='Ruta al archivo CSV de entrenamiento.')
 parser.add_argument('--ruta_test', type=str, default='/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/test.csv', help='Ruta al archivo CSV de prueba.')
 parser.add_argument('--ruta_sample', type=str, default='/Users/ximenapaz/github/ITAM/Proyecto_Casas/data/sample_submission.csv', help='Ruta al archivo CSV de muestra.')
@@ -28,9 +27,14 @@ print(sample.head())
 print(train.describe()) 
 
 #Se buscarán los missing values en nuestra train data
-umbral = 1
-number_of_cols = encontrar_valores_faltantes(train, umbral)
-print(number_of_cols)
+try:
+    # Definir el umbral y encontrar columnas con valores faltantes
+    umbral = 1
+    number_of_cols = encontrar_valores_faltantes(train, umbral)
+    print("Número de columnas con valores faltantes:", number_of_cols)
+except Exception as e:
+    print("Error al encontrar valores faltantes:", e)
+
 
 #Grafica de análisis
 train.groupby('YrSold')['SalePrice'].median().plot()

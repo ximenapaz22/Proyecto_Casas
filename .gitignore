@@ -2,3 +2,5 @@ data/
 .DS_store
 __pycache__/
 config.yaml
+predictions.csv
+modelo_final.sav

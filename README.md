@@ -19,5 +19,5 @@ Este proyecto tiene como objetivo predecir el precio de las casas utilizando té
 4. **Predicción**: Utiliza el script `inference.py` para realizar predicciones utilizando un modelo entrenado.
 
 ## Requisitos
-- Python 3.x
+- Python
 - Bibliotecas Python: Pandas, NumPy, Scikit-learn, Matplotlib, etc.

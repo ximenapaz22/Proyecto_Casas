@@ -21,3 +21,11 @@ Este proyecto tiene como objetivo predecir el precio de las casas utilizando té
 ## Requisitos
 - Python
 - Bibliotecas Python: Pandas, NumPy, Scikit-learn, Matplotlib, etc.
+
+## Arquitectura
+
+Aquí se muestra el diagrama de arquitectura de nuestro proyecto:
+
+![Diagrama de Arquitectura](assets/Arquitectura_de_datos.png) 
+
+
